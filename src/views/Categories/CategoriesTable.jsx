@@ -50,7 +50,6 @@ const CategoriesTable = () => {
             reject();
         }
     }
-    const [openPopup, setOpenPopup] = useState(false);
     let [details, setDetails] = useState({});
     const handleDetails = (event, rowData) => {
         setOpenPopup(true);
@@ -58,6 +57,7 @@ const CategoriesTable = () => {
         console.log(details);
         console.log(details.name);
     }
+    const [openPopup, setOpenPopup] = useState(false);
     const handleClose = () => {
         setOpenPopup(false);
     };

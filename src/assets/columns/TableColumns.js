@@ -22,6 +22,28 @@ export const categoryColumn = [
       title: 'Estado', field: 'statusId.internalid', lookup:
         { 1: 'Disponible', 2: 'No Disponible' },
     },
-  ]
+]
+export const productColumn = [
+  { title: 'id', field: 'internalid', hidden: true },
+  {
+    title: 'Codigo', field: 'productCode', validate: rowData => rowData.categoryCode === '' ?
+      { isValid: false, helperText: 'Codigo no puede estar vacio' } : true
+  },
+  {
+    title: 'Articulo', field: 'articleCode', validate: rowData => rowData.articleCode === '' ?
+      { isValid: false, helperText: 'Articulo no puede estar vacio' } : true
+  },
+  {
+    title: 'Nombre', field: 'name', validate: rowData => rowData.name === '' ?
+      { isValid: false, helperText: 'Nombre no puede estar vacio' } : true
+  },
+  { title: 'Descripcion', field: 'description', },
+  { title: 'Fecha creacion', field: 'dateCreated', type: 'date', editable: 'never' },
+  { title: 'Precio', field: 'unitPrice', type: 'currency'},
+  {
+    title: 'Estado', field: 'statusId.internalid', lookup:
+      { 1: 'Disponible', 2: 'No Disponible' },
+  },
+]
 
   
