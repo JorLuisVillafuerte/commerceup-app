@@ -7,11 +7,13 @@ import { HashRouter } from 'react-router-dom'
 
 
 import './assets/scss/style.css';
-import CategoiresState from './context/Categories/CategoriesState';
+import CategoriesState from './context/Categories/CategoriesState';
+import ProductsState from './context/Products/ProductsState';
 //const hist = createBrowserHistory();
 
 ReactDOM.render(
-<CategoiresState>
+    <CategoriesState>
+        <ProductsState>
 
     <HashRouter>
         <Switch>
@@ -20,5 +22,6 @@ ReactDOM.render(
             })}
         </Switch>
     </HashRouter>
-            </CategoiresState>
+            </ProductsState>
+    </CategoriesState>
     , document.getElementById('root')); 

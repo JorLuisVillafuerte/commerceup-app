@@ -1,15 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Tabs, Tab, AppBar, Box, Typography } from '@material-ui/core';
 import { Row, Col } from 'reactstrap';
 import productsRoutes from '../../routes/ProductsRoutes';
 import MenuAction from './MenuAction';
 import NotificationAlert from 'react-notification-alert';
-
+import ProductsContext from '../../context/Products/ProductsContext';
 const Products = () => {
 
     const notify = useRef(null);
-    /*const {msg} = useContext(CategoriasContext);
+    const {msg} = useContext(ProductsContext);
     useEffect(()=>{
         if(msg){
         notify.current.notificationAlert({
@@ -25,14 +24,13 @@ const Products = () => {
             closeButton: true, 
             autoDismiss: 10});
         }
-    },[msg]);*/
-    
+    },[msg]);
     return (
         <>
-        <NotificationAlert ref={notify} />
         <MenuAction
             productsRoutes={productsRoutes}
         />
+        <NotificationAlert ref={notify} />
         <Row>
             <Col xs="12" md="12">
                 <Switch>

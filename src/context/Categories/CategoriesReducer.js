@@ -3,7 +3,7 @@ import {GET_ALL_CATEGORIES, ADD_CATEGORY, DELETE_CATEGORY, EDIT_CATEGORY, ERROR_
 export default (state,action) => {
     switch (action.type) {
         case GET_ALL_CATEGORIES:
-            localStorage.setItem('categories', action.payload)
+            localStorage.setItem('categories', [action.payload])
             return {
                 ...state,
                 categorias: action.payload,

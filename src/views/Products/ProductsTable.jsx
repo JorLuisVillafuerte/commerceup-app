@@ -3,6 +3,7 @@ import MaterialTable from 'material-table';
 import {productColumn} from '../../assets/columns/TableColumns';
 import TableAction from '../../components/Tables/TableAction';
 import AxiosService from '../../config/AxiosService';
+import { LinearProgress } from '@material-ui/core';
 
 const ProductsTable = () => {
     const [data, setData] = useState([]);
@@ -53,6 +54,11 @@ const ProductsTable = () => {
         console.log(details);
         console.log(details.name);
     }*/
+    if(data.length === 0) {
+        return (
+            <LinearProgress color="primary" />
+        );
+    }
     return ( 
         <TableAction
             columns={productColumn}

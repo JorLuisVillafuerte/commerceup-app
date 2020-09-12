@@ -51,7 +51,7 @@ const CategoriesForm = (props) => {
                     description: '',
                     targetType: '',
                     seasonType: '',
-                    statusId: 0
+                    statusId: null
                 });
             }
         });
@@ -60,11 +60,11 @@ const CategoriesForm = (props) => {
     return (
         <CardGroup>
             <Card>
-                <CardBody>
-                    <CardTitle className="text-center mb-4 mt-4" tag="h3">FORMULARIO AGREGAR CATEGORIA</CardTitle>
+                <CardBody style={{ padding: 16 }}>
+                    <CardTitle className="text-center mb-4 mt-2" tag="h3">FORMULARIO AGREGAR CATEGORIA</CardTitle>
                     <Divider className="my-4" />
                     <form onSubmit={handleSubmit}>
-                    <Form >
+                        <Form >
                         <Row form>
                             <Col md={6} >
                                 <FormGroup className="p-2">
@@ -72,7 +72,6 @@ const CategoriesForm = (props) => {
                                         required
                                         name="categoryCode"
                                         label="Codigo"
-                                        variant="outlined"
                                         value={categoryCode}
                                         onChange={handleChange}
                                         fullWidth
@@ -89,7 +88,6 @@ const CategoriesForm = (props) => {
                                         id="name"
                                         name="name"
                                         label="Nombre de categoria"
-                                        variant="outlined"
                                         fullWidth
                                         value={name}
                                         onChange={handleChange}
@@ -103,40 +101,63 @@ const CategoriesForm = (props) => {
                                 name="description"
                                 label="Descripcion"
                                 multiline
-                                rows={5}
-                                variant="outlined"
+                                rows={4}
                                 value={description}
                                 onChange={handleChange}
                                 fullWidth
                             />
                         </FormGroup>
+                        <Row form>
+                            <Col md={6}>
+                                <FormGroup className="p-2">
+                                    <FormControl fullWidth >
+                                        <InputLabel id="target">Target</InputLabel>
+                                        <Select
+                                            labelId="targetType"
+                                            id="targetType"
+                                            name="targetType"
+                                            value={targetType}
+                                            onChange={handleChange}
+                                            label="Target"
+                                            fullWidth
+                                            required
+                                        >
+                                            <MenuItem value="">
+                                                <em>Seleccione un target</em>
+                                            </MenuItem>
+                                            <MenuItem value={'niños'}>Niños</MenuItem>
+                                            <MenuItem value={'niñas'}>Niñas</MenuItem>
+                                            <MenuItem value={'bebe'}>Bebe</MenuItem>
+                                            <MenuItem value={'beba'}>Beba</MenuItem>
+                                            <MenuItem value={'hombre'}>Hombre</MenuItem>
+                                            <MenuItem value={'mujer'}>Mujer</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </FormGroup>        
+                            </Col>
+                            <Col md={6}>
+                                <FormGroup className="p-2">
+                                <FormControl fullWidth>
+                                    <InputLabel id="statusId">Estado</InputLabel>
+                                    <Select
+                                        labelId="statusId"
+                                        id="statusId"
+                                        name="statusId"
+                                        value={statusId}
+                                        onChange={handleChange}
+                                        label="Estado"
+                                        fullWidth
+                                        required
+                                    >
+                                        <MenuItem value={1}>Disponible</MenuItem>
+                                        <MenuItem value={2}>No Disponible</MenuItem>
+                                    </Select>
+                                </FormControl>
+                                </FormGroup>                
+                            </Col>
+                        </Row>
                         <FormGroup className="p-2">
-                            <FormControl variant="outlined" fullWidth >
-                                <InputLabel id="target">Target</InputLabel>
-                                <Select
-                                    labelId="targetType"
-                                    id="targetType"
-                                    name="targetType"
-                                    value={targetType}
-                                    onChange={handleChange}
-                                    label="Target"
-                                    fullWidth
-                                    required
-                                >
-                                    <MenuItem value="">
-                                        <em>Seleccione un target</em>
-                                    </MenuItem>
-                                    <MenuItem value={'niños'}>Niños</MenuItem>
-                                    <MenuItem value={'niñas'}>Niñas</MenuItem>
-                                    <MenuItem value={'bebe'}>Bebe</MenuItem>
-                                    <MenuItem value={'beba'}>Beba</MenuItem>
-                                    <MenuItem value={'hombre'}>Hombre</MenuItem>
-                                    <MenuItem value={'mujer'}>Mujer</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </FormGroup>
-                        <FormGroup className="p-2">
-                            <FormControl variant="outlined" fullWidth>
+                            <FormControl fullWidth>
                                 <InputLabel id="seasonType">Temporada</InputLabel>
                                 <Select
                                     labelId="seasonType"
@@ -155,24 +176,6 @@ const CategoriesForm = (props) => {
                                     <MenuItem value={'verano'}>Verano</MenuItem>
                                     <MenuItem value={'otoño'}>Otoño</MenuItem>
                                     <MenuItem value={'invierno'}>Invierno</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </FormGroup>
-                        <FormGroup className="p-2">
-                            <FormControl variant="outlined" fullWidth>
-                                <InputLabel id="statusId">Estado</InputLabel>
-                                <Select
-                                    labelId="statusId"
-                                    id="statusId"
-                                    name="statusId"
-                                    value={statusId}
-                                    onChange={handleChange}
-                                    label="Estado"
-                                    fullWidth
-                                    required
-                                >
-                                    <MenuItem value={1}>Disponible</MenuItem>
-                                    <MenuItem value={2}>No Disponible</MenuItem>
                                 </Select>
                             </FormControl>
                         </FormGroup>

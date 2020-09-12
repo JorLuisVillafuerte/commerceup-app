@@ -8,7 +8,7 @@ var productsRoutes = [
         icon: 'mdi mdi-adjust',
         component: ProductsTable,
         title: 'Ver Productos',
-        text: 'Haga click para listar todos las productos del sistema.',
+        text: 'Haga click para listar todos las productos.',
         buttonText: 'Ver Productos'
     },
     {
@@ -16,16 +16,24 @@ var productsRoutes = [
         icon: 'mdi mdi-adjust',
         component: ProductsForm,
         title: 'Agregar producto',
-        text: 'Haga click para agregar un producto via formulario.',
+        text: 'Haga click para agregar un producto.',
         buttonText: 'Agregar'
     },
     {
         path: '/ui-components/productos/report',
         icon: 'mdi mdi-adjust',
         component: ProductsForm,
-        title: 'Reportar un problema',
-        text: 'Haga click para ingresar un problema via formulario.',
-        buttonText: 'Reportar'
+        title: 'Agregar Item',
+        text: 'Haga click para agregar un item a un producto.',
+        buttonText: 'Agregar Item'
+    },
+    {
+        path: '/ui-components/productos/report',
+        icon: 'mdi mdi-adjust',
+        component: ProductsForm,
+        title: 'Listado detallado',
+        text: 'Haga click para ver listado de productos/items.',
+        buttonText: 'Ver'
     },
 ]
 export default productsRoutes;

@@ -6,19 +6,17 @@ import { Route, Switch, Link, NavLink } from 'react-router-dom';
 const MenuAction = (props) => {
     return ( 
         <Row>
-            <Nav id="sidebarnav">
-                {props.productsRoutes.map((prop, key) => {
-                    return (
-                    <Col xs="12" md="4">
-                        <Card body className="text-center" >
-                            <CardTitle>{prop.title}</CardTitle>
-                            <CardText>{prop.text}</CardText>
-                            <Link to={prop.path}><Button color="info" block>{prop.buttonText}</Button></Link>
-                        </Card>
-                    </Col>
-                    );                
-                })}
-            </Nav>
+            {props.productsRoutes.map((prop, key) => {
+                return (
+                <Col xs="12" md="3">
+                    <Card body className="text-center" >
+                        <CardTitle>{prop.title}</CardTitle>
+                        <CardText>{prop.text}</CardText>
+                        <Link to={prop.path}><Button color="info" block>{prop.buttonText}</Button></Link>
+                    </Card>
+                </Col>
+                );                
+            })}
         </Row>
     );
 }
