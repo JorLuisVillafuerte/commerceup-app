@@ -16,15 +16,15 @@ let rFactor = function () {
 
 //Bar chart
 let barData = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
     datasets: [{
-        label: 'Iphone',
+        label: 'Ventas Fisicas',
         backgroundColor: '#4c5782',
         borderColor: '#4c5782',
         data: [rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor()]
     },
     {
-        label: 'Ipad',
+        label: 'Ventas Online',
         backgroundColor: '#7460ee',
         borderColor: '#7460ee',
         data: [rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor()]
@@ -37,16 +37,16 @@ const SalesSummary = () => {
             <CardBody>
                 <div className="d-flex align-items-center">
                     <div>
-                        <CardTitle>Sales Summary</CardTitle>
-                        <CardSubtitle>summary of the month</CardSubtitle>
+                        <CardTitle>Resumen de ventas</CardTitle>
+                        <CardSubtitle>Resumen por mes</CardSubtitle>
                     </div>
                     <div className="ml-auto d-flex align-items-center">
                         <ul className="list-inline font-12 dl mr-3 mb-0">
                             <li className="border-0 p-0 text-info list-inline-item">
-                                <i className="fa fa-circle"></i> Iphone
+                                <i className="fa fa-circle"></i> Ventas fisica
 								</li>
                             <li className="border-0 p-0 text-primary list-inline-item">
-                                <i className="fa fa-circle"></i> Ipad
+                                <i className="fa fa-circle"></i> Ventas online
 								</li>
                         </ul>
                     </div>

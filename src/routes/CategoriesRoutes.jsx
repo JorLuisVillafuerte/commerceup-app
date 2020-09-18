@@ -3,7 +3,7 @@ import CategoriesTable from '../views/Categories/CategoriesTable';
 
 var CategoriesRoutes = [
 {
-    path: '/ui-components/categorias/table',
+    path: '/admin/ui-components/categorias/table',
     icon: 'mdi mdi-adjust',
     component: CategoriesTable,
     title: 'Ver categorias',
@@ -11,7 +11,7 @@ var CategoriesRoutes = [
     buttonText: 'Ver categorias'
 },
 {
-    path: '/ui-components/categorias/form',
+    path: '/admin/ui-components/categorias/form',
     icon: 'mdi mdi-adjust',
     component: CategoriesForm,
     title: 'Agregar categoria',
@@ -19,7 +19,7 @@ var CategoriesRoutes = [
     buttonText: 'Agregar'
 },
 {
-    path: '/ui-components/categorias/report',
+    path: '/admin/ui-components/categorias/report',
     icon: 'mdi mdi-adjust',
     component: CategoriesForm,
     title: 'Reportar un problema',

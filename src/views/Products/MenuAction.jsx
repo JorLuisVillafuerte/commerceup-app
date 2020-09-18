@@ -8,7 +8,7 @@ const MenuAction = (props) => {
         <Row>
             {props.productsRoutes.map((prop, key) => {
                 return (
-                <Col xs="12" md="3">
+                <Col xs="12" md="3" key={key}>
                     <Card body className="text-center" >
                         <CardTitle>{prop.title}</CardTitle>
                         <CardText>{prop.text}</CardText>

@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Form, FormGroup, Button, Row, Col } from 'reactstrap';
 import { TextField, MenuItem, InputLabel, Select, FormControl, InputAdornment, Input } from '@material-ui/core';
-import ProductContext from '../../context/Products/ProductsContext';
+import ProductContext from '../../../context/Products/ProductsContext';
+import CategoriesContext from '../../../context/Categories/CategoriesContext';
 const ProductForm = (props) => {
-    const {alertaError} = useContext(ProductContext);
+    const { alertaError } = useContext(ProductContext);
+    const { categorias } = useContext(CategoriesContext);
     const { form, setForm, handleNext } = props;
     const { productCode, name, articleCode, description, unitPrice, categoryId, statusId, cantidad } = form;
     const handleChange = (e) => {
@@ -11,8 +13,6 @@ const ProductForm = (props) => {
             ...form,
             [e.target.name]: e.target.value
         });
-        let arr = localStorage.getItem('categorias');
-        console.log(arr);
     };
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -143,8 +143,9 @@ const ProductForm = (props) => {
                                     onChange={handleChange}
                                     value={categoryId}
                                 >
-                                    <MenuItem value={1}>Disponible</MenuItem>
-                                    <MenuItem value={2}>No Disponible</MenuItem>
+                                    {categorias.map(cat => {
+                                       return <MenuItem value={cat.internalid}>{cat.name}</MenuItem>
+                                    })}
                                 </Select>
                             </FormControl>
                         </FormGroup>

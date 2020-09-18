@@ -13,3 +13,7 @@ export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const ERROR_PRODUCT = 'ERROR_PRODUCT';
 export const OK_PRODUCT = 'OK_PRODUCT';
 
+export const OK_LOGIN = 'OK_LOGIN';
+export const ERROR_LOGIN = 'ERROR_LOGIN';
+export const GET_USER = 'GET_USER';
+

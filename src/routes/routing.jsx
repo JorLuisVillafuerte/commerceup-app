@@ -1,10 +1,4 @@
-/*--------------------------------------------------------------------------------*/
-/*                                  starter                                    */
-/*--------------------------------------------------------------------------------*/
 import FirstDashboard from '../views/starter/starter.jsx';
-/*--------------------------------------------------------------------------------*/
-/*                           Ui-components Dropdown                               */
-/*--------------------------------------------------------------------------------*/
 import Alerts from '../views/ui-components/alert.jsx';
 import Badges from '../views/ui-components/badge.jsx';
 import Buttons from '../views/ui-components/button.jsx';
@@ -17,77 +11,77 @@ import Categories from '../views/Categories/Categories.jsx';
 import Products from '../views/Products/Products.jsx';
 var ThemeRoutes = [
   {
-    path: '/starter/starter',
+    path: '/admin/starter/starter',
     name: 'Dashboard',
     icon: 'mdi mdi-adjust',
     component: FirstDashboard
   },
   {
-    path: '/ui-components/categorias',
+    path: '/admin/ui-components/categorias',
     name: 'Categorias',
     icon: 'mdi mdi-adjust',
     component: Categories
   },
   {
-    path: '/ui-components/productos',
+    path: '/admin/ui-components/productos',
     name: 'Productos',
     icon: 'mdi mdi-adjust',
     component: Products
   },
   {
-    path: '/ui-components/alert',
+    path: '/admin/ui-components/alert',
     name: 'Alerts',
     icon: 'mdi mdi-comment-processing-outline',
     component: Alerts
   },
   {
-    path: '/ui-components/badge',
+    path: '/admin/ui-components/badge',
     name: 'Badges',
     icon: 'mdi mdi-arrange-send-backward',
     component: Badges
   },
   {
-    path: '/ui-components/button',
+    path: '/admin/ui-components/button',
     name: 'Buttons',
     icon: 'mdi mdi-toggle-switch',
     component: Buttons
   },
   {
-    path: '/ui-components/card',
+    path: '/admin/ui-components/card',
     name: 'Cards',
     icon: 'mdi mdi-credit-card-multiple',
     component: Cards
   },
   {
-    path: '/ui-components/layout',
+    path: '/admin/ui-components/layout',
     name: 'Layout',
     icon: 'mdi mdi-apps',
     component: LayoutComponent
   },
   {
-    path: '/ui-components/pagination',
+    path: '/admin/ui-components/pagination',
     name: 'Pagination',
 
     icon: 'mdi mdi-priority-high',
     component: PaginationComponent
   },
   {
-    path: '/ui-components/popover',
+    path: '/admin/ui-components/popover',
     name: 'Popover',
 
     icon: 'mdi mdi-pencil-circle',
     component: PopoverComponent
   },
   {
-    path: '/ui-components/tooltip',
+    path: '/admin/ui-components/tooltip',
     name: 'Toltips',
 
     icon: 'mdi mdi-image-filter-vintage',
     component: TooltipComponent
   },
   {
-    path: '/',
-    pathTo: '/starter/starter',
+    path: '/admin',
+    pathTo: '/admin/starter/starter',
     name: 'Dashboard',
     redirect: true
   }

@@ -8,9 +8,10 @@ import {  LinearProgress, Dialog, DialogTitle, DialogContent, TextField, DialogA
 
 const CategoriesTable = () => {
 
-    const { eliminarCategoria, editarCategoria, guardarCategoria } = useContext(CategoriasContext);
+    const { eliminarCategoria, editarCategoria,obtenerCategorias } = useContext(CategoriasContext);
     const [data, setData] = useState([]);
     useEffect(() => {
+        obtenerCategorias();
         console.log('use effect triger');
         AxiosService.get('categorias/').then(res => {
             setData(res.data);

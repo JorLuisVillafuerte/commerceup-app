@@ -35,6 +35,21 @@ const ProductsState = (props) => {
             });
         }
     }
+    const obtenerProductoCodigo = async(codigo)=> {
+        try {
+            const result = await AxiosService.get(`productos/codigo/${codigo}`);
+            console.log(result);
+            return result;
+        } catch (error) {
+            console.log(error.response);
+            const alert = {msg: 'No se encontro un producto con el codigo ingresado, vuelva a intentar!.', type: 'warning', icon: 'nc-icon nc-bell-55'}
+            dispatch({
+                type: ERROR_PRODUCT,
+                payload: alert
+            });
+            return null;
+        }
+    }
 
     const guardarProducto = async(producto) =>{
         try {
@@ -119,6 +134,27 @@ const ProductsState = (props) => {
             payload: alert
         });
     }
+    //NUEVO 17/09
+    const agregarLoteItems = async(arrayItems) => {
+        try {
+            const result = await AxiosService.post('productosItem/lote',arrayItems);
+            console.log(result);
+            const alert = { msg: 'Los items fueron agregados exitosamente.', type: 'primary', icon: 'nc-icon nc-bell-55'}
+            dispatch({
+                type: OK_PRODUCT,
+                payload: alert
+            });
+            return true;
+        } catch (error) {
+            console.log(error);
+            const alert = { msg: 'Ops! ocurrio un error al cargar los items.', type: 'warning',icon: 'nc-icon nc-bell-55'}
+            dispatch({
+                type: ERROR_PRODUCT,
+                payload: alert
+            });
+            return false;
+        }
+    }
     return ( 
         <ProductsContext.Provider
             value={{
@@ -126,10 +162,12 @@ const ProductsState = (props) => {
                 notificacion:state.notificacion,
                 msg: state.msg,
                 obtenerProductos,
+                obtenerProductoCodigo,
                 editarProducto,
                 guardarProducto,
                 eliminarProducto,
-                alertaError
+                alertaError,
+                agregarLoteItems
             }}
         >
             {props.children}

@@ -25,16 +25,16 @@ const Projects = () => {
             <CardBody>
                 <div className="d-flex align-items-center">
                     <div>
-                        <CardTitle>Projects of the Month</CardTitle>
-                        <CardSubtitle>Overview of Latest Month</CardSubtitle>
+                        <CardTitle>Proyectos del mes</CardTitle>
+                        <CardSubtitle>Overview de proyectos</CardSubtitle>
                     </div>
                     <div className="ml-auto d-flex no-block align-items-center">
                         <div className="dl">
                             <Input type="select" className="custom-select">
-                                <option value="0">Monthly</option>
-                                <option value="1">Daily</option>
-                                <option value="2">Weekly</option>
-                                <option value="3">Yearly</option>
+                                <option value="0">Mensual</option>
+                                <option value="1">Diario</option>
+                                <option value="2">Semanal</option>
+                                <option value="3">Anual</option>
                             </Input>
                         </div>
                     </div>
@@ -42,12 +42,12 @@ const Projects = () => {
                 <Table className="no-wrap v-middle" responsive>
                     <thead>
                         <tr className="border-0">
-                            <th className="border-0">Team Lead</th>
-                            <th className="border-0">Project</th>
+                            <th className="border-0">Lider de equipo</th>
+                            <th className="border-0">Proyecto</th>
 
                             <th className="border-0">Status</th>
-                            <th className="border-0">Weeks</th>
-                            <th className="border-0">Budget</th>
+                            <th className="border-0">Semanas</th>
+                            <th className="border-0">Presupuesto</th>
                         </tr>
                     </thead>
                     <tbody>

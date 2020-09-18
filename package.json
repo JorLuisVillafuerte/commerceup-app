@@ -1,7 +1,7 @@
 {
     "name": "materialpro-react-admin",
     "version": "0.1.0",
-    "homepage": "http://wrappixel.com/demos/free-admin-templates/materialpro-reactadmin-lite/main/",
+    "homepage": "",
     "private": true,
     "dependencies": {
         "@material-ui/core": "^4.11.0",

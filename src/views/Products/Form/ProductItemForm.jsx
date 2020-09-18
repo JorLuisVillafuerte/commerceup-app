@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { Form, FormGroup, Button, Row, Col } from 'reactstrap';
-import { TextField, MenuItem, InputLabel, Select, FormControl, InputAdornment, Input } from '@material-ui/core';
-import ProductContext from '../../context/Products/ProductsContext';
-
+import { TextField, MenuItem, InputLabel, Select, FormControl, ListItem, ListItemText, ListItemSecondaryAction, IconButton, List } from '@material-ui/core';
+import ProductContext from '../../../context/Products/ProductsContext';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 
 const ProductItemForm = (props) => {
@@ -10,7 +10,7 @@ const ProductItemForm = (props) => {
     const { form, handleBack, handleNext, items, setItems } = props;
     const [cantidad, setCantidad] = useState(form.cantidad);
     const [item, setItem] = useState({
-        itemCode: 'ITM-'+Math.floor(Math.random()*4000),
+        itemCode: 'ITM-'+Math.floor(Math.random()*9000),
         size: '',
         colour: '',
         statusId: 0,
@@ -45,11 +45,18 @@ const ProductItemForm = (props) => {
             setCantidad(cantidad - 1);
             setItems([...items, item]);
             setItem({
-                itemCode: 'ITM-'+Math.floor(Math.random()*10)+1,
+                itemCode:'ITM-'+Math.floor(Math.random()*9000),
                 size: '',
                 colour: ''
             })
         }
+    }
+    const deleteItem = (value) => {
+        console.log(value);
+        let asd = items.filter(item => item.itemCode !== value.itemCode )
+        console.log(asd);
+        setItems(asd);
+        setCantidad(cantidad + 1);
     }
     const handleSubmitItem = (e) => {
         e.preventDefault();
@@ -122,7 +129,29 @@ const ProductItemForm = (props) => {
                     </FormGroup>
                 </Col>
             </Row>
-            <Row style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            {(items.length === 0) ? (
+                null
+            ):(
+                <Row style={{display: 'flex', justifyContent: 'center'}} className="mt-3">
+                    <Col md={6}>
+                        <List>
+                        {items.map((value) => {
+                            return (
+                                <ListItem key={value.itemCode} role={undefined} dense button >
+                                <ListItemText  id={value.itemCode} primary={`Codigo Item: ${value.itemCode}  Talle:${value.size} Color:${value.colour} `} />
+                                <ListItemSecondaryAction>
+                                <IconButton edge="end" aria-label="comments" onClick={()=>deleteItem(value)}>
+                                    <HighlightOffIcon />
+                                </IconButton>
+                                </ListItemSecondaryAction>
+                                </ListItem>
+                            );
+                        })}
+                        </List>
+                    </Col>
+                </Row>
+            )}
+            <Row style={{ display: 'flex', justifyContent: 'flex-end' }} className="mt-3">
                 <Col md={4}>
                     <Button block color="info" onClick={handleBackItem}>Atras</Button>
                 </Col>
@@ -130,7 +159,9 @@ const ProductItemForm = (props) => {
                     <Button block color="info" type="submit">Siguiente</Button>
                 </Col>
             </Row>
+            
         </Form>
+
     );
 }
 

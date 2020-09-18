@@ -1,10 +1,12 @@
 import ProductsTable from "../views/Products/ProductsTable";
-import ProductsForm from "../views/Products/ProductsForm";
+import ProductsForm from "../views/Products/Form/ProductsForm";
+import ProductItemForm from "../views/ProductItems/ProductItemForm";
+import ProductList from "../views/Products/List/ProductsList";
 
 
 var productsRoutes = [
     {
-        path: '/ui-components/productos/table',
+        path: '/admin/ui-components/productos/table',
         icon: 'mdi mdi-adjust',
         component: ProductsTable,
         title: 'Ver Productos',
@@ -12,7 +14,7 @@ var productsRoutes = [
         buttonText: 'Ver Productos'
     },
     {
-        path: '/ui-components/productos/form',
+        path: '/admin/ui-components/productos/form',
         icon: 'mdi mdi-adjust',
         component: ProductsForm,
         title: 'Agregar producto',
@@ -20,17 +22,17 @@ var productsRoutes = [
         buttonText: 'Agregar'
     },
     {
-        path: '/ui-components/productos/report',
+        path: '/admin/ui-components/productos/itemform',
         icon: 'mdi mdi-adjust',
-        component: ProductsForm,
+        component: ProductItemForm,
         title: 'Agregar Item',
         text: 'Haga click para agregar un item a un producto.',
         buttonText: 'Agregar Item'
     },
     {
-        path: '/ui-components/productos/report',
+        path: '/admin/ui-components/productos/list',
         icon: 'mdi mdi-adjust',
-        component: ProductsForm,
+        component: ProductList,
         title: 'Listado detallado',
         text: 'Haga click para ver listado de productos/items.',
         buttonText: 'Ver'

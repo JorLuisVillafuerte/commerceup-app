@@ -32,14 +32,14 @@ const Categories = () => {
                 <Card body className="text-center" >
                     <CardTitle>Ver categorias</CardTitle>
                     <CardText>Haga click para listar todas las categorias del sistema.</CardText>
-                    <Link to='/ui-components/categorias/table'><Button color="info" block>Ver categorias</Button></Link>
+                    <Link to='/admin/ui-components/categorias/table'><Button color="info" block>Ver categorias</Button></Link>
                 </Card>
             </Col>
             <Col xs="12" md="4">
                 <Card body className="text-center">
                     <CardTitle>Agregar categoria</CardTitle>
                     <CardText>Haga click para agregar una categoria via formulario.</CardText>
-                    <Link to='/ui-components/categorias/form'><Button color="info" block>Agregar</Button></Link>
+                    <Link to='/admin/ui-components/categorias/form'><Button color="info" block>Agregar</Button></Link>
                 </Card>
             </Col>
             <Col xs="12" md="4">             

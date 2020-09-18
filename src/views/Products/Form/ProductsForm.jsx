@@ -4,7 +4,7 @@ import { Feeds } from 'components/dashboard-components';
 import { Divider, Stepper, Step, StepLabel } from '@material-ui/core';
 import ProductForm from './ProductForm';
 import ProductItemForm from './ProductItemForm';
-import ProductContext from '../../context/Products/ProductsContext';
+import ProductContext from '../../../context/Products/ProductsContext';
 import ProductDetails from './ProductDetails';
 
 const steps = ['Datos del producto', 'Cantidad de items', 'Revisar y confirmar'];
@@ -36,7 +36,7 @@ function getStepContent(step, form, setForm, handleNext,handleBack, items, setIt
 //CREAR USE STATE DE ITEMS -> PASRLO A PRODUCTITEMFORM
 //PASAR A UN COMPONENTE EL STATE DE PRODUCTO Y ITEMS Y MOSTRARLO COMO TERCERO
 const ProductsForm = () => {
-    const {guardarProducto} = useContext(ProductContext);
+    const {guardarProducto,agregarLoteItems} = useContext(ProductContext);
     const [form, setForm] = useState({
         productCode: '',
         articleCode: '',
@@ -62,9 +62,10 @@ const ProductsForm = () => {
     };
     const handleSubmit = async(e) => {
         e.preventDefault();
-        form.categoryId = 8;
         delete form['cantidad'];
-        console.log(form);
+        console.log('producto: '+form.toString());
+        console.log('items: '+items.toString());
+        //AGREGO PRODUCTO
         const producto = await guardarProducto(form);
         console.log(producto);
         if(producto === false){
@@ -74,7 +75,8 @@ const ProductsForm = () => {
                 item.statusId = producto.statusId.internalid; 
                 item.productId = producto.internalid; 
             });
-            console.log(items);
+            //AGREGO ITEMS DEL PRODUCTO
+            agregarLoteItems(items);
             setItems([]);
             setForm({
                 productCode: '',

@@ -21,7 +21,9 @@ const Starter = () => {
                     <Projects />
                 </Col>
             </Row>
-            <SocialCards />
+            {/*
+                <SocialCards />
+            */}
         </div>
     );
 }

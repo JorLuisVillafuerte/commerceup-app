@@ -20,7 +20,7 @@ export default function TableAction(props) {
           props.handleRowDelete(oldData, resolve,reject)
         }) 
       }}
-      actions={[
+      /*actions={[
         {
           icon: 'search',
           tooltip: 'Ver registro',
@@ -28,7 +28,7 @@ export default function TableAction(props) {
             props.handleDetails(event,rowData);
           }
         }
-      ]}
+      ]}*/
       localization={{          
         body: {
             emptyDataSourceMessage: 'No hay registros para mostrar',
