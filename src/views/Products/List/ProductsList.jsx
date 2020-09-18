@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Grid, Card, Icon, IconButton, Tooltip, Button } from "@material-ui/core";
+import { Grid, Card, Icon, IconButton, Tooltip, Button, Divider } from "@material-ui/core";
 import { CardBody, Container, Row, Col, CardTitle, CardImg, CardText, CardSubtitle } from 'reactstrap';
 import img1 from '../../../assets/images/big/img1.jpg';
 import ProductsContext from '../../../context/Products/ProductsContext';
@@ -19,17 +19,17 @@ const ProductList = () => {
                 <Card >
                     <CardBody>
                         <Row>
-                            <Col md={2}>
+                            <Col md={3}>
 
                             </Col>
-                            <Col md={10}>
-                                <Row>
-                                    <div className="card-deck">
+                            <Col md={9}>
+                            <Divider orientation="vertical" flexItem />
+                                <Row style={{display: 'flex', justifyContent: 'center'}}>
                                         {productos.map((prd,key) => {
                                             return(
-                                            <Col md={3} key={key} className="mb-4">
-                                                <Card>
-                                                    <CardImg top alt="..." src="https://demos.creative-tim.com/argon-design-system-pro/assets/img/faces/alejandro-escamilla.jpg"></CardImg>
+                                            <Col md={3} xs={9} key={key} style={{minWidth: '30%'}} className="mb-4">
+                                                <Card elevation={5} style={{minWidth: '30%', }}>
+                                                    <CardImg top alt="..." style={{maxHeight: 150}} src="https://source.unsplash.com/random"></CardImg>
                                                     <CardBody >
                                                         <CardTitle>{prd.name}</CardTitle>
                                                         <CardText>{prd.unitPrice}</CardText>
@@ -38,7 +38,6 @@ const ProductList = () => {
                                                 </Card>                                
                                             </Col>);
                                         })}
-                                    </div>
                                 </Row>
                             </Col>
                         </Row>
