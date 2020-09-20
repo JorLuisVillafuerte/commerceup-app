@@ -9,6 +9,7 @@ import PopoverComponent from '../views/ui-components/popover.jsx';
 import TooltipComponent from '../views/ui-components/tooltip.jsx';
 import Categories from '../views/Categories/Categories.jsx';
 import Products from '../views/Products/Products.jsx';
+import ProductItems from '../views/ProductItems/ProductItems.jsx';
 var ThemeRoutes = [
   {
     path: '/admin/starter/starter',
@@ -27,6 +28,12 @@ var ThemeRoutes = [
     name: 'Productos',
     icon: 'mdi mdi-adjust',
     component: Products
+  },
+  {
+    path: '/admin/ui-components/stock',
+    name: 'Stock',
+    icon: 'mdi mdi-adjust',
+    component: ProductItems
   },
   {
     path: '/admin/ui-components/alert',

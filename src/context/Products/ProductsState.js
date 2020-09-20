@@ -2,13 +2,14 @@ import React, { useReducer } from 'react';
 import ProductsReducer from './ProductsReducer';
 import ProductsContext from './ProductsContext';
 import AxiosService from 'config/AxiosService';
-import {GET_ALL_PRODUCTS, DELETE_PRODUCT, EDIT_PRODUCT, ADD_PRODUCT, ERROR_PRODUCT, OK_PRODUCT} from '../../types/index.js';
+import {GET_ALL_PRODUCTS, DELETE_PRODUCT, EDIT_PRODUCT, ADD_PRODUCT, ERROR_PRODUCT, OK_PRODUCT,GET_ALL_PRODUCTSITEMS} from '../../types/index.js';
 
 const ProductsState = (props) => {
 
     //ESTADO INICIAL DE PRODCUTOS
     const initialState = {
         productos: [],
+        productosItems: [],
         error: false,
         msg: null
 
@@ -50,7 +51,28 @@ const ProductsState = (props) => {
             return null;
         }
     }
-
+    const obtenerProductosItems = async()=> {
+        try {
+            const result = await AxiosService.get('productos/');
+            let data = result.data;
+            for (let x = 0; x < data.length; x++) {
+                data[x].cantidad = data[x].productItemList.length;
+            }
+            console.log(data);
+            dispatch({
+                type: GET_ALL_PRODUCTSITEMS,
+                payload: data
+            })
+            return data;
+        } catch (error) {
+            const alert = {msg: 'Ops! ocurrio un error al cargar los registros, vuelva a intentar!.', type: 'warning', icon: 'nc-icon nc-bell-55'}
+            dispatch({
+                type: ERROR_PRODUCT,
+                payload: alert
+            });
+        }
+    }
+    
     const guardarProducto = async(producto) =>{
         try {
             producto.productCode = 'PRD-'+producto.productCode;
@@ -159,6 +181,7 @@ const ProductsState = (props) => {
         <ProductsContext.Provider
             value={{
                 productos: state.productos,
+                productosItems: state.productosItems,
                 notificacion:state.notificacion,
                 msg: state.msg,
                 obtenerProductos,
@@ -167,7 +190,8 @@ const ProductsState = (props) => {
                 guardarProducto,
                 eliminarProducto,
                 alertaError,
-                agregarLoteItems
+                agregarLoteItems,
+                obtenerProductosItems
             }}
         >
             {props.children}

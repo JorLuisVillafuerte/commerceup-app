@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
+import MenuAction from '../../components/MenuAction';
+import productItemsRoutes from '../../routes/ProductItemsRoutes';
 import { Switch, Route } from 'react-router-dom';
 import { Row, Col } from 'reactstrap';
-import productsRoutes from '../../routes/ProductsRoutes';
-import MenuAction from '../../components/MenuAction';
 import NotificationAlert from 'react-notification-alert';
-import ProductsContext from '../../context/Products/ProductsContext';
-const Products = () => {
 
+const ProductItems = () => {
     const notify = useRef(null);
-    const {msg} = useContext(ProductsContext);
+    
+    /*const {msg} = useContext(ProductsContext);
     useEffect(()=>{
         if(msg){
         notify.current.notificationAlert({
@@ -24,17 +24,18 @@ const Products = () => {
             closeButton: true, 
             autoDismiss: 10});
         }
-    },[msg]);
-    return (
+    },[msg]);*/
+
+    return ( 
         <>
         <MenuAction
-            routesMenu={productsRoutes}
+            routesMenu={productItemsRoutes}
         />
         <NotificationAlert ref={notify} />
         <Row>
             <Col xs="12" md="12">
                 <Switch>
-                {productsRoutes.map((prop, key) => {
+                {productItemsRoutes.map((prop, key) => {
                     return (
                         <Route
                         path={prop.path}
@@ -47,8 +48,7 @@ const Products = () => {
             </Col>
         </Row>
         </>
-    );
-        
+     );
 }
-
-export default Products;
+ 
+export default ProductItems;

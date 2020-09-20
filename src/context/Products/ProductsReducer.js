@@ -1,4 +1,4 @@
-import {ERROR_PRODUCT,OK_PRODUCT,ADD_PRODUCT, EDIT_PRODUCT, DELETE_PRODUCT, GET_ALL_PRODUCTS} from '../../types/index.js';
+import {ERROR_PRODUCT,OK_PRODUCT,ADD_PRODUCT, EDIT_PRODUCT, DELETE_PRODUCT, GET_ALL_PRODUCTS, GET_ALL_PRODUCTSITEMS} from '../../types/index.js';
 
 export default (state,action) => {
     switch (action.type) {
@@ -6,6 +6,12 @@ export default (state,action) => {
             return {
                 ...state,
                 productos: action.payload,
+                error: false
+            }   
+        case GET_ALL_PRODUCTSITEMS:
+            return {
+                ...state,
+                productosItems: action.payload,
                 error: false
             }   
         case ADD_PRODUCT:

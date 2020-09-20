@@ -6,7 +6,7 @@ import { Route, Switch, Link, NavLink } from 'react-router-dom';
 const MenuAction = (props) => {
     return ( 
         <Row>
-            {props.productsRoutes.map((prop, key) => {
+            {props.routesMenu.map((prop, key) => {
                 return (
                 <Col xs="12" md="3" key={key}>
                     <Card body className="text-center" >
