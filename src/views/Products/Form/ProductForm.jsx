@@ -21,6 +21,10 @@ const ProductForm = (props) => {
             alertaError('El codigo debe ser numerico.');
             return;
         }
+        if(isNaN(unitPrice)){
+            alertaError('El precio debe ser numerico.');
+            return;
+        }
         if(cantidad <= 0){
             alertaError('La cantidad de items del producto debe ser mayor a 0 (cero).');
             return;

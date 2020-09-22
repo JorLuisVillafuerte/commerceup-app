@@ -42,6 +42,9 @@ export default function TableAction(props) {
         header: {
           actions: 'Acciones'
         },
+        toolbar: {
+          searchPlaceholder: 'Buscar'
+        }
       }}
       options={{
         pageSize: 10,

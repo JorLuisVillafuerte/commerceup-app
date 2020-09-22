@@ -43,8 +43,12 @@ const ProductItemForm = () => {
         console.log(inputSearch);
         cantidadPendiente=cantidad;
         const producto1 = await obtenerProductoCodigo(codigo);
-        setProducto(producto1.data);
-        console.log(producto);
+        console.log(producto1);
+        if(producto1 !== null){
+            setProducto(producto1.data);
+        }else{
+            alertaError('No se encontro un producto con el codigo proporcionado.');
+        }
 
     }
     const addItem = (e) => {

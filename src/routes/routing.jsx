@@ -10,6 +10,7 @@ import TooltipComponent from '../views/ui-components/tooltip.jsx';
 import Categories from '../views/Categories/Categories.jsx';
 import Products from '../views/Products/Products.jsx';
 import ProductItems from '../views/ProductItems/ProductItems.jsx';
+import Orders from '../views/Orders/Orders.jsx';
 var ThemeRoutes = [
   {
     path: '/admin/starter/starter',
@@ -34,6 +35,12 @@ var ThemeRoutes = [
     name: 'Stock',
     icon: 'mdi mdi-adjust',
     component: ProductItems
+  },
+  {
+    path: '/admin/ui-components/ventas',
+    name: 'Ventas',
+    icon: 'mdi mdi-adjust',
+    component: Orders
   },
   {
     path: '/admin/ui-components/alert',

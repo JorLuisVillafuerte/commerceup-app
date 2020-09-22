@@ -28,6 +28,8 @@ function getStepContent(step, form, setForm, handleNext,handleBack, items, setIt
             return <ProductDetails
                 handleReset={handleReset}
                 handleSubmit={handleSubmit}
+                producto={form}
+                items={items}
             />
         default:
             return 'Paso desconocido, por favor vuelva a ingresar al formulario';

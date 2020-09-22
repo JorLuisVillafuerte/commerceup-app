@@ -3,13 +3,14 @@ import ProductsContext from '../../context/Products/ProductsContext';
 import {stockColumn} from '../../assets/columns/TableColumns';
 import MaterialTable from 'material-table';
 import { Alert, Col, Row } from 'reactstrap';
-import { Table, TableCell, TableHead, TableRow } from '@material-ui/core';
+import { LinearProgress, Table, TableCell, TableHead, TableRow } from '@material-ui/core';
 const ProductItemsTable = () => {
 
     const {obtenerProductosItems,productosItems} = useContext(ProductsContext);
     useEffect(() => {
         obtenerProductosItems();
     }, []);
+    if(productosItems.length === 0) return (<LinearProgress color="primary" />);
     return ( 
         <MaterialTable
             title=''

@@ -1,8 +1,8 @@
 export const categoryColumn = [
     { title: 'id', field: 'internalid', hidden: true },
     {
-      title: 'Codigo', field: 'categoryCode', validate: rowData => rowData.categoryCode === '' ?
-        { isValid: false, helperText: 'Codigo no puede estar vacio' } : true
+      title: 'Codigo', field: 'categoryCode', editable: 'never' /*validate: rowData => rowData.categoryCode === '' ?
+        { isValid: false, helperText: 'Codigo no puede estar vacio' } : true*/
     },
     {
       title: 'Nombre', field: 'name', validate: rowData => rowData.name === '' ?

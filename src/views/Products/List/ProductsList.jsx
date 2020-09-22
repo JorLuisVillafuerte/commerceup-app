@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Grid, Card, Icon, IconButton, Tooltip, Button, Divider, CardContent, Typography, CardActions, CardMedia, CardActionArea, FormGroup, InputLabel, TextField } from "@material-ui/core";
+import { Grid, Card, Icon, IconButton, Tooltip, Button, Divider, CardContent, Typography, CardActions, CardMedia, CardActionArea, FormGroup, InputLabel, TextField, LinearProgress } from "@material-ui/core";
 import { CardBody, Container, Row, Col, CardTitle, CardImg, CardText, CardSubtitle, CardLink } from 'reactstrap';
 import img1 from '../../../assets/images/big/img1.jpg';
 import ProductsContext from '../../../context/Products/ProductsContext';
@@ -38,6 +38,7 @@ const ProductList = () => {
         </CardBody>
     </Card>
     */
+    if(productos.length === 0) return (<LinearProgress color="primary" />);
     return ( 
         <Container>
             <Row>
