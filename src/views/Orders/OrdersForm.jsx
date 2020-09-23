@@ -1,9 +1,15 @@
-import { Divider, FormGroup, TextField } from '@material-ui/core';
+import { Divider, FormGroup, IconButton, InputAdornment, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
-import { Card, CardBody, CardTitle, Col, Form, Row } from 'reactstrap';
+import { Button, Card, CardBody, CardTitle, Col, Form, Row } from 'reactstrap';
+import SearchIcon from "@material-ui/icons/Search";
 
 const OrdersForm = () => {
-    const [selectProduct, setselectProduct] = useState('');
+    const [productSearch, setProductSearch] = useState('');
+    const addProduct = (e) => {
+        e.preventDefault();
+        console.log(productSearch);
+    }
+
     return ( 
         <Row>
             <Col md={6}>
@@ -11,19 +17,30 @@ const OrdersForm = () => {
                     <CardBody>
                         <CardTitle className="text-center mb-4 mt-2" tag="h3">FORMULARIO AGREGAR PRODUCTO</CardTitle>
                         <Divider className="my-4" />
-                        <Form>
+                        <Form onSubmit={addProduct}>
                             <Row form>
                                 <Col md={12}>
-                                    <FormGroup className="p-2">
+                                    <FormGroup>
                                         <TextField
-                                            required
-                                            name="producto"
-                                            label="Producto"
+                                            label="Ingresar producto"
                                             fullWidth
-                                            value={selectProduct}
-                                            
+                                            name="producto"
+                                            value={productSearch}
+                                            onChange={(e)=>{
+                                                setProductSearch(e.target.value);
+                                            }}
+                                            InputProps={{
+                                                endAdornment: (
+                                                    <InputAdornment>
+                                                        <IconButton>
+                                                            <SearchIcon />
+                                                        </IconButton>
+                                                    </InputAdornment>
+                                                )
+                                            }}
                                         />
                                     </FormGroup>
+                                    <Button className="mt-3" color="info" block type="submit">Buscar</Button>
                                 </Col>
                             </Row>
                         </Form>  
